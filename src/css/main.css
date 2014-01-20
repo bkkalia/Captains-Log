@@ -41,4 +41,5 @@ button {
 	background: transparent;
 	font-family: inherit;
 	-webkit-font-smoothing: none;
+	-webkit-user-select: none;
 }
