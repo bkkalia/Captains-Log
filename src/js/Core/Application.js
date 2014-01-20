@@ -9,7 +9,7 @@ var ApplicationView = Backbone.View.extend({
 	el : '#Application',
 	model : new Application(),
 	eventCollection : {},
-	title : new TitleScreenView(),
+	title : {},
 	
 	initialize : function () {
 		
@@ -19,13 +19,19 @@ var ApplicationView = Backbone.View.extend({
 		// Enable CSS state pseudo-classes
 		document.addEventListener("touchstart", function() {},false);
 		
-		// Load title screen.
-		this.$el.html(this.title.render());
+		var self = this;
 		
 		// Run after event data is loaded.
-		this.eventCollection = new EventCollection({callback : function() {
-			
-			
+		this.eventCollection = new EventCollection({callback : function() {		
+			self.render();
 		}})
+	},
+	
+	render: function () {
+		this.title = new TitleScreenView({el : $("section#title-screen")});
+		// Load title screen.
+		this.title.render();
+		this.delegateEvents();
 	}
+	
 });
