@@ -13,6 +13,12 @@ var ApplicationView = Backbone.View.extend({
 	
 	initialize : function () {
 		
+		// Remove 300ms click delay on touch devices
+		FastClick.attach(document.body);
+		
+		// Enable CSS state pseudo-classes
+		document.addEventListener("touchstart", function() {},false);
+		
 		// Load title screen.
 		this.$el.html(this.title.render());
 		

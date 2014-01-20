@@ -33,3 +33,12 @@ html, body {
 	position:relative;
     min-height:100%;	
 }
+
+button {
+	display: block;
+	-webkit-appearance: none;
+	border: none;
+	background: transparent;
+	font-family: inherit;
+	-webkit-font-smoothing: none;
+}

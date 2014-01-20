@@ -24,7 +24,8 @@ module.exports = function (grunt) {
                     'src/js/vendor/jquery.js',
                     'src/js/vendor/underscore.js',
                     'src/js/vendor/backbone.js',
-
+					'src/js/vendor/fastclick.js',
+					
                     // Custom files/classes
                     
                     'src/js/Event/Event.js',
