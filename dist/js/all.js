@@ -12495,26 +12495,41 @@ var EventCollection = Backbone.Collection.extend({
 	
 });
 var ScreenView = Backbone.View.extend({
+		
+	close : function (event) {
+		var self = this;
+		// Add class, when animation is done, remove element from DOM
+		this.$el.addClass("closing").one("webkitTransitionEnd", function(event) {
+			self.remove();
+		});
+	},
 	
+	
+	render : function () {
+		this.$el.html(this.template());
+		this.delegateEvents();
+		return this;
+	}	
 });
+
+var GameScreenView = ScreenView.extend({
+	template : _.template($("#GameScreenTemplate").html()),
+
+
+	initialize : function (options) {
+
+		
+	}
+})
 var TitleScreenView = ScreenView.extend({
 	template : _.template($("#TitleScreenTemplate").html()),
 	events : {
-		"click" : "close"
+		"click button#start" : "close"
 	},	
 
 	initialize : function (options) {
 
 		
-	},
-	
-	close : function (event) {
-		this.$el.addClass("closing");
-	},
-	
-	render : function () {
-		this.$el.html(this.template());
-		this.delegateEvents();
 	}
 })
 var Application = Backbone.Model.extend({
@@ -12528,7 +12543,8 @@ var ApplicationView = Backbone.View.extend({
 	el : '#Application',
 	model : new Application(),
 	eventCollection : {},
-	title : {},
+	titlescreen : {},
+	gamescreen : {},
 	
 	initialize : function () {
 		
@@ -12545,12 +12561,17 @@ var ApplicationView = Backbone.View.extend({
 			self.render();
 		}})
 	},
+
 	
 	render: function () {
-		this.title = new TitleScreenView({el : $("section#title-screen")});
+		var self = this;
+		
 		// Load title screen.
-		this.title.render();
-		this.delegateEvents();
+		this.titlescreen = new TitleScreenView({el : $("section#title-screen")});
+		// Render and attach extra click event to start button.
+		this.titlescreen.render().$el.find("button#start").on("click", function (event) {
+			this.gamescreen = new GameScreenView({el : $("section#game-screen")}).render();
+		});
 	}
 	
 });

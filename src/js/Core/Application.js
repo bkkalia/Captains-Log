@@ -9,7 +9,8 @@ var ApplicationView = Backbone.View.extend({
 	el : '#Application',
 	model : new Application(),
 	eventCollection : {},
-	title : {},
+	titlescreen : {},
+	gamescreen : {},
 	
 	initialize : function () {
 		
@@ -26,12 +27,17 @@ var ApplicationView = Backbone.View.extend({
 			self.render();
 		}})
 	},
+
 	
 	render: function () {
-		this.title = new TitleScreenView({el : $("section#title-screen")});
+		var self = this;
+		
 		// Load title screen.
-		this.title.render();
-		this.delegateEvents();
+		this.titlescreen = new TitleScreenView({el : $("section#title-screen")});
+		// Render and attach extra click event to start button.
+		this.titlescreen.render().$el.find("button#start").on("click", function (event) {
+			this.gamescreen = new GameScreenView({el : $("section#game-screen")}).render();
+		});
 	}
 	
 });

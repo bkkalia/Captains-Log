@@ -31,6 +31,7 @@ module.exports = function (grunt) {
                     'src/js/Event/Event.js',
                     'src/js/Event/EventCollection.js',
                     'src/js/Screen/Screen.js',
+                    'src/js/Screen/GameScreen.js',
                     'src/js/Screen/TitleScreen.js',
                     'src/js/Core/Application.js',
                     'src/js/main.js'
