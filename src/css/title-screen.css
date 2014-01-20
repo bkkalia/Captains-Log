@@ -24,8 +24,10 @@ section#title-screen {
 	font-size: 4.5em;
 	text-transform: uppercase;
 	color: #e9502d;
+	opacity: 0;
 	letter-spacing: 0.01em;
-	-webkit-animation: title-color-cycle 1s infinite linear, title-scale 0.25s forwards; 
+	-webkit-animation: title-color-cycle 1s infinite linear, title-scale 0.25s 3s forwards; 
+
 }
 
 @-webkit-keyframes title-scale {
