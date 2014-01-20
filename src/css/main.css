@@ -1,0 +1,35 @@
+@font-face {
+	font-family: 'Bebas Neue';
+	font-weight: normal;
+	src: url('fonts/BebasNeue-Regular.otf') format('otf');
+}
+
+@font-face {
+	font-family: 'Bebas Neue';
+	font-weight: bold;
+	src: url('fonts/BebasNeue-Bold.otf') format('otf');
+}
+
+@font-face {
+	font-family: 'Munro';
+	src: url('fonts/munro.ttf') format('ttf');
+}
+
+
+
+body {
+	margin: 0;
+	position: relative;
+	font-family: 'Munro';
+	-webkit-font-smoothing: none;
+
+}
+
+html, body {
+	height: 100%;
+}
+
+#Application {
+	position:relative;
+    min-height:100%;	
+}

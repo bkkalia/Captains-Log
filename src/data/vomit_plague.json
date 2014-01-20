@@ -1,0 +1,20 @@
+{
+    "description": "One of your crew was vomiting through the night. People are growing concerned that he may have contracted a plague.",
+    "options": [
+        {
+            "title": "Allow the man to rest and recover. Hopefully he won't be a danger to your crew.",
+            "results": [
+                "(50) the man soon recovers and thanks you for not casting him to the waves!",
+                "(35) the man sadly dies and your crew is quick to the throw the body overboard. A pirate's funeral is brief.",
+                "(15) the man dies but not before contaminating some of your food supply. What a waste! [-max(8,foodSupply/4)]"
+            ]
+        },
+        {
+            "title": "Throw the man to the mercy of the sea. Let one pirate die to save the rest.",
+            "results": [
+                "(80) your crew throws the man overboard. He screams but the sea soon silences him.",
+                "(20) you throw the man to a watery grave and a profound sadness overcomes you. You wonder why you ever became a pirate."
+            ]
+        }
+    ]
+}

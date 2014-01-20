@@ -1,0 +1,65 @@
+[{
+    "description": "An unknown pirate vessel approaches.",
+    "options": [
+        {
+            "title": "Ready cannons and fire when ready.",
+            "results": [
+                "(80) They prepare to return fire. Attack!",
+                "(20) You launch a devastating volley a the ship. They were no match for firepower of that magnitude! [+10 food, +25 coin]"
+            ]
+        },
+        {
+            "title": "Sail closer and attempt to get a better look.",
+            "results": [
+                "(50) As you sail closer you see the words \"death bringer\" burned into the ship's hull. Not today! [fight the ship]",
+                "(50) You vomit uncontrollably in fear, while the rest of your crew dies without leadership. [Game over]"
+            ]
+        },
+        {
+            "title": "Attempt to sail away.",
+            "results": [
+                "(60) You sail away from the vessel without incident. Who were they?",
+                "(40) The ship reveals itself as the \"death bringer\". It is both a name and a mission statement. [fight the ship]"
+            ]
+        }
+    ]
+},{
+    "description": "One of your crew was vomiting through the night. People are growing concerned that he may have contracted a plague.",
+    "options": [
+        {
+            "title": "Allow the man to rest and recover. Hopefully he won't be a danger to your crew.",
+            "results": [
+                "(50) the man soon recovers and thanks you for not casting him to the waves!",
+                "(35) the man sadly dies and your crew is quick to the throw the body overboard. A pirate's funeral is brief.",
+                "(15) the man dies but not before contaminating some of your food supply. What a waste! [-max(8,foodSupply/4)]"
+            ]
+        },
+        {
+            "title": "Throw the man to the mercy of the sea. Let one pirate die to save the rest.",
+            "results": [
+                "(80) your crew throws the man overboard. He screams but the sea soon silences him.",
+                "(20) you throw the man to a watery grave and a profound sadness overcomes you. You wonder why you ever became a pirate."
+            ]
+        }
+    ]
+},{
+    "description": "Wreckage from a recent battle drifts toward your ship. A man is found floating aboard a ruined fragment of hull.",
+    "options": [
+        {
+            "title": "Bring the man aboard.",
+            "results": [
+                "(40) He thanks you for rescuing him and offers to join your crew.",
+                "(30) Sadly, the sea has already claimed the man's life.",
+                "(15) In your attempt to rescue the man one of your crew slips and is swallowed by the sea.",
+                "(15) It seems that the sea has left this man crazed! He grabs one of your crew and jumps into the sea."
+            ]
+        },
+        {
+            "title": "Leave the man to the mercy of the sea.",
+            "results": [
+                "(80) You let the sea decide his fate.",
+                "(20) A cold wind blows overhead. You feel remorse."
+            ]
+        }
+    ]
+}]

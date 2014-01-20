@@ -1,0 +1,26 @@
+{
+    "description": "An unknown pirate vessel approaches.",
+    "options": [
+        {
+            "title": "Ready cannons and fire when ready.",
+            "results": [
+                "(80) They prepare to return fire. Attack!",
+                "(20) You launch a devastating volley a the ship. They were no match for firepower of that magnitude! [+10 food, +25 coin]"
+            ]
+        },
+        {
+            "title": "Sail closer and attempt to get a better look.",
+            "results": [
+                "(50) As you sail closer you see the words \"death bringer\" burned into the ship's hull. Not today! [fight the ship]",
+                "(50) You vomit uncontrollably in fear, while the rest of your crew dies without leadership. [Game over]"
+            ]
+        },
+        {
+            "title": "Attempt to sail away.",
+            "results": [
+                "(60) You sail away from the vessel without incident. Who were they?",
+                "(40) The ship reveals itself as the \"death bringer\". It is both a name and a mission statement. [fight the ship]"
+            ]
+        }
+    ]
+}

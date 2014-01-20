@@ -1,0 +1,17 @@
+--- 
+description: Wreckage from a recent battle drifts toward your ship. A man is found floating aboard a ruined fragment of hull.
+
+
+options: 
+
+    - title: Bring the man aboard.
+      results:
+          - (40) He thanks you for rescuing him and offers to join your crew.
+          - (30) Sadly, the sea has already claimed the man's life.
+          - (15) In your attempt to rescue the man one of your crew slips and is swallowed by the sea.
+          - (15) It seems that the sea has left this man crazed! He grabs one of your crew and jumps into the sea.
+          
+    - title: Leave the man to the mercy of the sea.
+      results:
+          - (80) You let the sea decide his fate.
+          - (20) A cold wind blows overhead. You feel remorse.
