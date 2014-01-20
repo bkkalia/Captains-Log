@@ -12509,7 +12509,6 @@ var TitleScreenView = ScreenView.extend({
 	},
 	
 	close : function (event) {
-		alert("CLOSING");
 		this.$el.addClass("closing");
 	},
 	
