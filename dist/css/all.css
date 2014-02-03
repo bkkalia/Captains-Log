@@ -22,7 +22,7 @@ time {
 	top: 10px;
 	left: 15px;
 	color: white;
-	-webkit-animation: slide-down 0.25s 0.2s forwards;
+	-webkit-animation: normalize 0.25s 0.2s forwards;
 	text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
 	
 	/* Initial values */
@@ -46,19 +46,13 @@ time {
 	src: url('../../fonts/munro.ttf') format('truetype');
 }
 
-@-webkit-keyframes pop-in {
+@-webkit-keyframes normalize {
 	to {
-		-webkit-transform: scale3d(1, 1, 1);
+		-webkit-transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
 		opacity : 1;
 	}
 }
 
-@-webkit-keyframes slide-down {
-	to {
-		-webkit-transform: translate3d(0, 0, 0);
-		opacity : 1;
-	}
-}
 
 
 
@@ -118,6 +112,20 @@ ul#resources > li.resource {
 	opacity: 0;
 }
 
+/* Retina display bullshit for resource icons. */
+li.resource.Cannons {
+	background-size: 84px auto;
+}
+
+li.resource.Food {
+	background-size: 89px auto;	
+}
+
+li.resource.Pirates {
+	background-size: 84px auto;	
+}
+
+/* Resource quantity display */
 li.resource > figure.amount {
 	padding: 0;
 	margin: 15px 0 0 0;
@@ -129,16 +137,17 @@ li.resource > figure.amount {
 
 /* Fade in each resource according to its position in the list. Stagger with delays. */
 li:nth-child(1) {
-	-webkit-animation: pop-in 0.25s 0s forwards;
+	-webkit-animation: normalize 0.25s 0s forwards;
 }
 
 li:nth-child(2) {
-	-webkit-animation: pop-in 0.25s 0.15s forwards;
+	-webkit-animation: normalize 0.25s 0.15s forwards;
 }
 
 li:nth-child(3) {
-	-webkit-animation: pop-in 0.25s 0.3s forwards;
+	-webkit-animation: normalize 0.25s 0.3s forwards;
 }
+
 
 
 

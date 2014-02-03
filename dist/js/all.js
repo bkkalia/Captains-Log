@@ -12505,6 +12505,10 @@ var ResourceView = Backbone.View.extend({
 		
 		// Set image from model.
 		this.el.style.backgroundImage = 'url("' + this.model.image + '")';
+		
+		// Set class from model type.
+		console.log(this.model.type);
+		this.el.classList.add(this.model.type);
 	},
 	
 	render : function () {

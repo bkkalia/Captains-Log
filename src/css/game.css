@@ -11,7 +11,7 @@ time {
 	top: 10px;
 	left: 15px;
 	color: white;
-	-webkit-animation: slide-down 0.25s 0.2s forwards;
+	-webkit-animation: normalize 0.25s 0.2s forwards;
 	text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
 	
 	/* Initial values */

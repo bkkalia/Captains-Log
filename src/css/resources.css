@@ -25,6 +25,20 @@ ul#resources > li.resource {
 	opacity: 0;
 }
 
+/* Retina display bullshit for resource icons. */
+li.resource.Cannons {
+	background-size: 84px auto;
+}
+
+li.resource.Food {
+	background-size: 89px auto;	
+}
+
+li.resource.Pirates {
+	background-size: 84px auto;	
+}
+
+/* Resource quantity display */
 li.resource > figure.amount {
 	padding: 0;
 	margin: 15px 0 0 0;
@@ -36,16 +50,17 @@ li.resource > figure.amount {
 
 /* Fade in each resource according to its position in the list. Stagger with delays. */
 li:nth-child(1) {
-	-webkit-animation: pop-in 0.25s 0s forwards;
+	-webkit-animation: normalize 0.25s 0s forwards;
 }
 
 li:nth-child(2) {
-	-webkit-animation: pop-in 0.25s 0.15s forwards;
+	-webkit-animation: normalize 0.25s 0.15s forwards;
 }
 
 li:nth-child(3) {
-	-webkit-animation: pop-in 0.25s 0.3s forwards;
+	-webkit-animation: normalize 0.25s 0.3s forwards;
 }
+
 
 
 
