@@ -29,6 +29,10 @@
 
 }
 
+#EventWindow h5#description.collapse {
+	
+}
+
 #EventWindow ol#options {
 	padding: 0;
 	margin: 0;
@@ -47,7 +51,13 @@
 	color: white;
 	text-shadow: 0 1px 0 rgba(0,0,0,0.3);
 	background: #c69c6d;
+	
+	cursor: pointer;
+}
 
+#EventWindow ol#options > li.option:active {
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+	background: #b69269;
 }
 
 #EventWindow ol#options > li.option:first-child {

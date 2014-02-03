@@ -25,6 +25,7 @@ module.exports = function (grunt) {
                     'src/js/vendor/underscore.js',
                     'src/js/vendor/backbone.js',
 					'src/js/vendor/fastclick.js',
+					'src/js/vendor/TweenMax.js',
 					
                     // Custom files/classes
                     'src/js/Game/Resource.js',
