@@ -1,5 +1,5 @@
 section#game-screen {
-	background: green;
+	background: #2d97e9; /* Water */
 	top: 0;
 	left: 0;
 	right: 0;
@@ -8,6 +8,27 @@ section#game-screen {
 	-webkit-transition: opacity 0.25s linear;
 }
 
+
+#Game {
+	width: 100%;
+	height: 100%;
+	font-size: 44px;
+	color: black;
+}
+
+
+time {
+	position: absolute;
+	top: 10px;
+	left: 15px;
+	color: white;
+	-webkit-animation: slide-down 0.25s 0.2s forwards;
+	text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+	
+	/* Initial values */
+	opacity: 0;
+	-webkit-transform: translate3d(0, -50px, 0);
+}
 @font-face {
 	font-family: 'Bebas Neue';
 	font-weight: normal;
@@ -25,6 +46,22 @@ section#game-screen {
 	src: url('../../fonts/munro.ttf') format('truetype');
 }
 
+@-webkit-keyframes pop-in {
+	to {
+		-webkit-transform: scale3d(1, 1, 1);
+		opacity : 1;
+	}
+}
+
+@-webkit-keyframes slide-down {
+	to {
+		-webkit-transform: translate3d(0, 0, 0);
+		opacity : 1;
+	}
+}
+
+
+
 
 
 body {
@@ -32,7 +69,8 @@ body {
 	position: relative;
 	font-family: 'Munro';
 	-webkit-font-smoothing: none;
-
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 html, body {
@@ -53,8 +91,60 @@ button {
 	-webkit-font-smoothing: none;
 	-webkit-user-select: none;
 }
+
+ul#resources {
+	list-style: none;	
+	position: absolute;
+	top: 20px;
+	margin: 0;
+	right: 20px;
+	display: block;
+	padding: 0;
+	overflow: hidden;
+}
+
+ul#resources > li.resource {
+	width: 150px;
+	height: 90px;
+	background-repeat: no-repeat;
+	background-position: left top;	
+	display: block;
+	image-rendering: -webkit-optimize-contrast;
+	overflow: hidden;
+	margin: 0 0 15px 0;
+	
+	/* initial values */
+	-webkit-transform: scale3d(0.9, 0.9, 0.9);
+	opacity: 0;
+}
+
+li.resource > figure.amount {
+	padding: 0;
+	margin: 15px 0 0 0;
+	color: white;
+	text-align: right;
+	text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+
+}
+
+/* Fade in each resource according to its position in the list. Stagger with delays. */
+li:nth-child(1) {
+	-webkit-animation: pop-in 0.25s 0s forwards;
+}
+
+li:nth-child(2) {
+	-webkit-animation: pop-in 0.25s 0.15s forwards;
+}
+
+li:nth-child(3) {
+	-webkit-animation: pop-in 0.25s 0.3s forwards;
+}
+
+
+
+
 section#title-screen {
-	background: #4872c8;
+	background: white;
 	top: 0;
 	left: 0;
 	right: 0;

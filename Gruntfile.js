@@ -27,9 +27,16 @@ module.exports = function (grunt) {
 					'src/js/vendor/fastclick.js',
 					
                     // Custom files/classes
-                    
+                    'src/js/Game/Resource.js',
+                    'src/js/Game/ResourceView.js',
+                    'src/js/Game/PirateResource.js',
+                    'src/js/Game/CannonResource.js',
+                    'src/js/Game/FoodResource.js',
+                    'src/js/Game/Timer.js',
                     'src/js/Event/Event.js',
                     'src/js/Event/EventCollection.js',
+                    'src/js/Game/Game.js',
+                    'src/js/Game/GameView.js',
                     'src/js/Screen/Screen.js',
                     'src/js/Screen/GameScreen.js',
                     'src/js/Screen/TitleScreen.js',

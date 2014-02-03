@@ -6,23 +6,23 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		<meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0, user-scalable = no">
-		<link rel="stylesheet" href="/dist/css/all.css" />
+		<link rel="stylesheet" href="dist/css/all.css" />
 	</head>
 	<body>
 		<div id="Application">
-			<section id="game-screen">
+			<section id="game-screen" class="screen">
 			
 			</section>
 			
-			<section id="title-screen">
+			<section id="title-screen" class="screen">
 			
 			</section>
-			
-			
 		</div>
 		
 		
 		<!-- templates -->
+		
+		<!-- Main screen turn on. -->
 		<script type="text/template" id="TitleScreenTemplate">
 			<div class="menu">
 				<h1>Captain’s Log</h1>
@@ -30,13 +30,34 @@
 			</div>
 		</script>
 		
+		<!-- It's you!! -->
 		<script type="text/template" id="GameScreenTemplate">
+			<div id="Game">
+
+			</div>
+		</script>
+		
+		<!-- Actual game view -->
+		<script type="text/template" id="GameTemplate">
 			
+			<time datetime="">00:00:00</time>
+		
+
+			<ul id="resources">			
+			<!-- Load all defined resources from Game model -->
+			
+			</ul>
+			
+		</script>
+		
+		<!-- All your resource are belong to player. -->
+		<script type="text/template" id="ResourceTemplate">
+			<figure class="amount"></figure>
 		</script>
 		
 		<!-- end templates -->
 		
 		
-		<script src="/dist/js/all.js"></script>
+		<script src="dist/js/all.js"></script>
 	</body>
 </html>

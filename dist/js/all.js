@@ -12472,6 +12472,113 @@ if (typeof define !== 'undefined' && define.amd) {
 } else {
 	window.FastClick = FastClick;
 }
+var Resource = Backbone.Model.extend({
+	defaults : {
+		amount: 50	
+	}	
+});
+var ResourceView = Backbone.View.extend({
+	tagName : "li",
+	template : _.template($("#ResourceTemplate").html()),
+	fart : "butt",
+	className: "resource",
+	
+	events : {
+		"click" : "handleClick"
+	},
+	
+	handleClick : function () {
+		this.model.set( {
+			amount : this.model.get("amount") + 5
+		});	
+	},
+	
+	$amount : function () {
+		return this.$el.find("figure.amount");	
+	},
+	
+	initialize : function (options) {
+		this.model = options.model;	
+		
+		// Re-render when changing model.
+		this.model.on('change', this.render, this);
+		
+		// Set image from model.
+		this.el.style.backgroundImage = 'url("' + this.model.image + '")';
+	},
+	
+	render : function () {
+		
+		this.$el.html(this.template());	
+		
+		// Update resource count
+		this.$amount().html(this.model.get("amount"));
+		
+		return this;
+	}		
+	
+});
+var PirateResource = Resource.extend({
+	image : "/img/pirate-resource.png",
+	type : "Pirates"
+})
+var CannonResource = Resource.extend({
+	image : "/img/cannon-resource.png",
+	type : "Cannons"
+})
+var FoodResource = Resource.extend({
+	image : "/img/food-resource.png",
+	type : "Food"
+})
+var Timer = Backbone.Model.extend({
+	
+	seconds : 0,
+	interval : 1,	// Dispatch event on this interval in seconds.
+	
+	initialize : function (options) {
+		
+		if (options && options.interval) {
+			this.interval = options.interval;
+			console.log(this.interval);
+		}
+		
+		
+		this.startTimer();
+		
+		return this;
+	},
+	
+	intervalCallback : function () {
+		this.trigger("intervalElapsed");
+	},
+	
+	startTimer : function () {
+		// one-second interval callback.
+		window.setInterval(this.tick.bind(this), 1000);
+	},
+	
+	tick : function () {
+		this.seconds++;
+		
+		if (this.seconds % this.interval === 0) {
+			this.intervalCallback();
+		}
+	}
+});
+
+// From http://stackoverflow.com/a/6313008
+Timer.prototype.toHHMMSS = function () {
+    var sec_num = parseInt(this.seconds, 10); // don't forget the second param
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    var time    = hours+':'+minutes+':'+seconds;
+    return time;
+}
 var Event = Backbone.Model.extend({
 	defaults : {
 		title : "Such default",
@@ -12494,6 +12601,54 @@ var EventCollection = Backbone.Collection.extend({
 	}	
 	
 });
+var Game = Backbone.Model.extend({
+	resources : {
+		pirates : new ResourceView({model : new PirateResource()}),
+		cannons : new ResourceView({model : new CannonResource()}),
+		food : new ResourceView({model : new FoodResource()})
+	}
+});
+var GameView = Backbone.View.extend({
+	
+	model : new Game(),
+	
+	template : _.template($("#GameTemplate").html()),
+	
+	el : "#Game",
+	
+	initialize : function () {
+		
+		// Start main timer
+		this.timer = new Timer({ interval : 1 })
+			.on("intervalElapsed", this.updateGameTimeDisplay.bind(this));
+			
+		return this;
+	},
+	
+	updateGameTimeDisplay : function () {		
+		this.$el.find("time").html(this.timer.toHHMMSS());
+	},
+	
+	renderResources : function () {
+		// Clear any existing resources
+		$("ul#resources").html('');
+		_.each(this.model.resources, function (resource, key) {
+			$("ul#resources").append(resource.render().el);
+		})
+	},
+	
+	
+	
+	render : function () {
+		this.$el.attr("fart", "butt");
+		
+		// Load template
+		this.$el.html(this.template());
+		this.renderResources();
+		
+	}
+	
+});
 var ScreenView = Backbone.View.extend({
 		
 	close : function (event) {
@@ -12513,11 +12668,22 @@ var ScreenView = Backbone.View.extend({
 });
 
 var GameScreenView = ScreenView.extend({
+
 	template : _.template($("#GameScreenTemplate").html()),
-
-
+	game: {},
+	
 	initialize : function (options) {
-
+		
+		this.render();
+		
+		
+		this.game = new GameView();
+		this.game.render();
+		
+	},
+	
+	render : function () {
+		this.$el.html(this.template());
 		
 	}
 })
@@ -12556,7 +12722,7 @@ var ApplicationView = Backbone.View.extend({
 		
 		var self = this;
 		
-		// Run after event data is loaded.
+		// Render and run after event data is loaded.
 		this.eventCollection = new EventCollection({callback : function() {		
 			self.render();
 		}})
@@ -12568,9 +12734,17 @@ var ApplicationView = Backbone.View.extend({
 		
 		// Load title screen.
 		this.titlescreen = new TitleScreenView({el : $("section#title-screen")});
+		
 		// Render and attach extra click event to start button.
-		this.titlescreen.render().$el.find("button#start").on("click", function (event) {
-			this.gamescreen = new GameScreenView({el : $("section#game-screen")}).render();
+		this.titlescreen.render()
+		
+		// Find start button,
+		.$el.find("button#start")
+		
+		// and add click handler that loads up the actual game.
+		.on("click", function (event) {
+			
+			this.gamescreen = new GameScreenView({el : $("section#game-screen")});
 		});
 	}
 	

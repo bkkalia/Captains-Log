@@ -1,0 +1,10 @@
+section#game-screen {
+	background: #2d97e9; /* Water */
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: absolute;
+	-webkit-transition: opacity 0.25s linear;
+}
+

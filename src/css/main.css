@@ -15,6 +15,22 @@
 	src: url('../../fonts/munro.ttf') format('truetype');
 }
 
+@-webkit-keyframes pop-in {
+	to {
+		-webkit-transform: scale3d(1, 1, 1);
+		opacity : 1;
+	}
+}
+
+@-webkit-keyframes slide-down {
+	to {
+		-webkit-transform: translate3d(0, 0, 0);
+		opacity : 1;
+	}
+}
+
+
+
 
 
 body {
@@ -22,7 +38,8 @@ body {
 	position: relative;
 	font-family: 'Munro';
 	-webkit-font-smoothing: none;
-
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 html, body {

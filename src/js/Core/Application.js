@@ -22,7 +22,7 @@ var ApplicationView = Backbone.View.extend({
 		
 		var self = this;
 		
-		// Run after event data is loaded.
+		// Render and run after event data is loaded.
 		this.eventCollection = new EventCollection({callback : function() {		
 			self.render();
 		}})
@@ -34,9 +34,17 @@ var ApplicationView = Backbone.View.extend({
 		
 		// Load title screen.
 		this.titlescreen = new TitleScreenView({el : $("section#title-screen")});
+		
 		// Render and attach extra click event to start button.
-		this.titlescreen.render().$el.find("button#start").on("click", function (event) {
-			this.gamescreen = new GameScreenView({el : $("section#game-screen")}).render();
+		this.titlescreen.render()
+		
+		// Find start button,
+		.$el.find("button#start")
+		
+		// and add click handler that loads up the actual game.
+		.on("click", function (event) {
+			
+			this.gamescreen = new GameScreenView({el : $("section#game-screen")});
 		});
 	}
 	
