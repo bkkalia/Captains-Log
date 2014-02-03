@@ -19302,8 +19302,8 @@ var EventView = Backbone.View.extend({
 				height : 0,
 				marginTop: 0,
 				marginBottom: 0,
-				opacity: 0,
-				padding: 0
+				padding: 0,
+				ease : "Quart.easeOut"
 		});
 		/*
 		TweenMax.to(this.$el.find("li.option:not(.chosen)"), 1, {
