@@ -8,6 +8,7 @@ var EventCollection = Backbone.Collection.extend({
 		});
 	},
 	
+	
 	fetchComplete : function () {
 		
 	}	

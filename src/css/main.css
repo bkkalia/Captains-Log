@@ -15,6 +15,21 @@
 	src: url('../../fonts/munro.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: 'Consul';
+	font-weight: normal;
+	font-style: normal;
+	src: url('../../fonts/Consul-DemiItalicDisplay.otf') format('otf');
+}
+
+@font-face {
+	font-family: 'Monaco';
+	font-weight: normal;
+	font-style: normal;
+	src: url('../../fonts/monaco.otf') format('otf');
+}
+
+
 @-webkit-keyframes normalize {
 	to {
 		-webkit-transform: scale3d(1, 1, 1) translate3d(0, 0, 0);

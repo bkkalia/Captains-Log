@@ -1,0 +1,57 @@
+#EventWindow {
+	position: absolute;
+	width: 60%;
+	box-shadow: 0px 2px 0 #c69c6d, 0px -2px 0 #c69c6d, 2px 0px 0 #c69c6d, -2px 0px 0 #c69c6d;
+	background: #e2cfb0;
+	top: 70px;
+	left: 50%;
+	margin-left: -30%;
+	overflow: hidden;
+	font-family: "Monaco";
+	
+	-webkit-transition: all 0.25s ease;
+	
+	/* Initial state */
+	display: none;
+}
+
+#EventWindow.hidden {
+	opacity: 0;
+	-webkit-transform: scale3d(0.9, 0.9, 0.9);
+}
+
+#EventWindow h5#description {
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 24px;
+	margin: 20px 45px;
+	color: #624622;
+
+
+}
+
+#EventWindow ol#options {
+	padding: 0;
+	margin: 0;
+
+	list-style: none;
+	overflow: hidden;
+}
+
+#EventWindow ol#options > li.option {
+	font-size: 13px;
+	line-height: 20px;
+	margin: 0;
+	padding: 20px 35px;
+	display: block;
+	border-top: 1px solid rgba(0,0,0,0.1);
+	color: white;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+	background: #c69c6d;
+
+}
+
+#EventWindow ol#options > li.option:first-child {
+	border: none;
+
+}

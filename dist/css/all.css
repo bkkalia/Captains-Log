@@ -1,3 +1,60 @@
+#EventWindow {
+	position: absolute;
+	width: 60%;
+	box-shadow: 0px 2px 0 #c69c6d, 0px -2px 0 #c69c6d, 2px 0px 0 #c69c6d, -2px 0px 0 #c69c6d;
+	background: #e2cfb0;
+	top: 70px;
+	left: 50%;
+	margin-left: -30%;
+	overflow: hidden;
+	font-family: "Monaco";
+	
+	-webkit-transition: all 0.25s ease;
+	
+	/* Initial state */
+	display: none;
+}
+
+#EventWindow.hidden {
+	opacity: 0;
+	-webkit-transform: scale3d(0.9, 0.9, 0.9);
+}
+
+#EventWindow h5#description {
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 24px;
+	margin: 20px 45px;
+	color: #624622;
+
+
+}
+
+#EventWindow ol#options {
+	padding: 0;
+	margin: 0;
+
+	list-style: none;
+	overflow: hidden;
+}
+
+#EventWindow ol#options > li.option {
+	font-size: 13px;
+	line-height: 20px;
+	margin: 0;
+	padding: 20px 35px;
+	display: block;
+	border-top: 1px solid rgba(0,0,0,0.1);
+	color: white;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+	background: #c69c6d;
+
+}
+
+#EventWindow ol#options > li.option:first-child {
+	border: none;
+
+}
 section#game-screen {
 	background: #2d97e9; /* Water */
 	top: 0;
@@ -45,6 +102,21 @@ time {
 	font-family: 'Munro';
 	src: url('../../fonts/munro.ttf') format('truetype');
 }
+
+@font-face {
+	font-family: 'Consul';
+	font-weight: normal;
+	font-style: normal;
+	src: url('../../fonts/Consul-DemiItalicDisplay.otf') format('otf');
+}
+
+@font-face {
+	font-family: 'Monaco';
+	font-weight: normal;
+	font-style: normal;
+	src: url('../../fonts/monaco.otf') format('otf');
+}
+
 
 @-webkit-keyframes normalize {
 	to {
@@ -136,15 +208,15 @@ li.resource > figure.amount {
 }
 
 /* Fade in each resource according to its position in the list. Stagger with delays. */
-li:nth-child(1) {
+li.resource:nth-child(1) {
 	-webkit-animation: normalize 0.25s 0s forwards;
 }
 
-li:nth-child(2) {
+li.resource:nth-child(2) {
 	-webkit-animation: normalize 0.25s 0.15s forwards;
 }
 
-li:nth-child(3) {
+li.resource:nth-child(3) {
 	-webkit-animation: normalize 0.25s 0.3s forwards;
 }
 
@@ -186,7 +258,7 @@ section#title-screen {
 	color: #e9502d;
 	opacity: 0;
 	letter-spacing: 0.01em;
-	-webkit-animation: title-color-cycle 1s infinite linear, title-scale 0.25s 1s forwards;
+	-webkit-animation: title-color-cycle 1s infinite linear, title-scale 0.25s 0.5s forwards;
 }
 
 #title-screen .menu button {
@@ -202,7 +274,7 @@ section#title-screen {
 	opacity: 0;
 	text-shadow: 0 2px 0 rgba(0,0,0,0.6);
 
-	-webkit-animation: title-start-button-fade-in 0.5s 1.35s forwards;
+	-webkit-animation: title-start-button-fade-in 0.5s 0.85s forwards;
 	cursor: pointer;
 }
 

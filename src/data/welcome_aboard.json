@@ -1,0 +1,28 @@
+{
+    "description": "A man stumbles towards you as you walk on board your first command.<br /><br />“Welcome aboard, Cap’n! We be glad to be servin’ ye. I'll be yer first-mate, One-eye Peg-leg. Crew is fixin’ fer a ripe shakedown, but first we be needin’ what all pirate crews be needin’—a few cases o’ grog fer plunderin’,” he turns laughing with the crew behind him. “Y’know, fer, uh... bondin’ purposes n’ such. <br /><br />“Now, if ye just be givin’ us what we owed, we can see to puttin’ this fine vessel to sea first-thing in the mornin’...”",
+    "initial": true,
+    "options": [
+        {
+            "title": "“Ah, yes, my good fellow! Wouldn't be a proper christening without some grog for the celebration. I will return posthaste, with all the drink I can possibly carry!”",
+            "results": [
+                "(50) the man soon recovers and thanks you for not casting him to the waves!",
+                "(35) the man sadly dies and your crew is quick to the throw the body overboard. A pirate's funeral is brief.",
+                "(15) the man dies but not before contaminating some of your food supply. What a waste! [-max(8,foodSupply/4)]"
+            ]
+        },
+        {
+            "title": "“We drink after leaving port. Let's go, men!” Your first act is a necessary compromise.",
+            "results": [
+                "(80) your crew throws the man overboard. He screams but the sea soon silences him.",
+                "(20) you throw the man to a watery grave and a profound sadness overcomes you. You wonder why you ever became a pirate."
+            ]
+        },
+        {
+            "title": "You punch One-eye in the gut and throw him overboard, soon after calling out to the other men, “Any other requests for your new Captain?”",
+            "results": [
+                "(80) your crew throws the man overboard. He screams but the sea soon silences him.",
+                "(20) you throw the man to a watery grave and a profound sadness overcomes you. You wonder why you ever became a pirate."
+            ]
+        }
+    ]
+}

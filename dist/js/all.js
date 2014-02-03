@@ -12586,7 +12586,7 @@ Timer.prototype.toHHMMSS = function () {
 var Event = Backbone.Model.extend({
 	defaults : {
 		title : "Such default",
-		options : "very options",
+		options : "many test",
 		index : "wow"
 	}
 });
@@ -12600,11 +12600,38 @@ var EventCollection = Backbone.Collection.extend({
 		});
 	},
 	
+	
 	fetchComplete : function () {
 		
 	}	
 	
 });
+var EventView = Backbone.View.extend({
+
+	template : _.template($("#EventViewTemplate").html()),
+	
+	initialize : function () {
+		console.log("Init event view");
+		
+		this.render();
+	},
+	
+	show : function () {
+		var self = this;
+		this.el.style.display = "block";
+		window.setTimeout(function() {
+			self.el.classList.remove("hidden");			
+		}, 10)
+	},
+	
+	hide : function () {
+		
+	},
+	
+	render : function () {
+		this.$el.html(this.template());
+	}
+})
 var Game = Backbone.Model.extend({
 	resources : {
 		pirates : new ResourceView({model : new PirateResource()}),
@@ -12620,13 +12647,49 @@ var GameView = Backbone.View.extend({
 	
 	el : "#Game",
 	
+	// All events live in and are managed here.
+	eventCollection : {},
+	
 	initialize : function () {
 		
 		// Start main timer
 		this.timer = new Timer({ interval : 1 })
 			.on("intervalElapsed", this.updateGameTimeDisplay.bind(this));
 			
+		// Load Events
+		this.eventCollection = new EventCollection({callback : this.eventsLoaded.bind(this)})
+			
 		return this;
+	},
+	
+	eventsLoaded : function () {
+		// Ready to mess around with and display events!
+		
+		// Find initial event. The YAML file has initial = true set for it.
+		var initialEvent = this.eventCollection.where({
+			initial : true
+		})[0];
+		
+		// After a SLIGHT delay, show initial event window.
+		var self = this;
+		window.setTimeout(function () {
+			self.renderEventWindow(initialEvent);
+		}, 500);
+		
+	},
+	
+	displayEventWindow : function () {
+		
+	},
+	
+	// Accepts (expects) event type as paramenter
+	renderEventWindow : function (event) {
+		
+		var ev = new EventView({model : event, el : this.$el.find("#EventWindow")});
+		
+		
+		ev.show();
+		
 	},
 	
 	updateGameTimeDisplay : function () {		
@@ -12640,8 +12703,6 @@ var GameView = Backbone.View.extend({
 			$("ul#resources").append(resource.render().el);
 		})
 	},
-	
-	
 	
 	render : function () {
 		this.$el.attr("fart", "butt");
@@ -12712,7 +12773,6 @@ var Application = Backbone.Model.extend({
 var ApplicationView = Backbone.View.extend({
 	el : '#Application',
 	model : new Application(),
-	eventCollection : {},
 	titlescreen : {},
 	gamescreen : {},
 	
@@ -12723,13 +12783,8 @@ var ApplicationView = Backbone.View.extend({
 		
 		// Enable CSS state pseudo-classes
 		document.addEventListener("touchstart", function() {},false);
-		
-		var self = this;
-		
-		// Render and run after event data is loaded.
-		this.eventCollection = new EventCollection({callback : function() {		
-			self.render();
-		}})
+				
+		this.render();
 	},
 
 	

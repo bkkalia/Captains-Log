@@ -33,7 +33,7 @@
 		<!-- It's you!! -->
 		<script type="text/template" id="GameScreenTemplate">
 			<div id="Game">
-
+				
 			</div>
 		</script>
 		
@@ -48,6 +48,20 @@
 			
 			</ul>
 			
+			<article id="EventWindow" class="hidden">
+				
+			</article>
+			
+		</script>
+		
+		<!-- Event Window template -->
+		<script type="text/template" id="EventViewTemplate">
+			<h5 id="description"><%= this.model.get('description') %></h5>
+			<ol id="options">
+				<% _.each(this.model.get('options'), function (value, key) { %>
+					<li class="option"><%= value.title %></li>
+				<% }) %>
+			</ol>
 		</script>
 		
 		<!-- All your resource are belong to player. -->

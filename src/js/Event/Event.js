@@ -1,7 +1,7 @@
 var Event = Backbone.Model.extend({
 	defaults : {
 		title : "Such default",
-		options : "very options",
+		options : "many test",
 		index : "wow"
 	}
 });

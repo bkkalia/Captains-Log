@@ -49,15 +49,15 @@ li.resource > figure.amount {
 }
 
 /* Fade in each resource according to its position in the list. Stagger with delays. */
-li:nth-child(1) {
+li.resource:nth-child(1) {
 	-webkit-animation: normalize 0.25s 0s forwards;
 }
 
-li:nth-child(2) {
+li.resource:nth-child(2) {
 	-webkit-animation: normalize 0.25s 0.15s forwards;
 }
 
-li:nth-child(3) {
+li.resource:nth-child(3) {
 	-webkit-animation: normalize 0.25s 0.3s forwards;
 }
 

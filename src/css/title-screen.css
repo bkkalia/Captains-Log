@@ -32,7 +32,7 @@ section#title-screen {
 	color: #e9502d;
 	opacity: 0;
 	letter-spacing: 0.01em;
-	-webkit-animation: title-color-cycle 1s infinite linear, title-scale 0.25s 1s forwards;
+	-webkit-animation: title-color-cycle 1s infinite linear, title-scale 0.25s 0.5s forwards;
 }
 
 #title-screen .menu button {
@@ -48,7 +48,7 @@ section#title-screen {
 	opacity: 0;
 	text-shadow: 0 2px 0 rgba(0,0,0,0.6);
 
-	-webkit-animation: title-start-button-fade-in 0.5s 1.35s forwards;
+	-webkit-animation: title-start-button-fade-in 0.5s 0.85s forwards;
 	cursor: pointer;
 }
 

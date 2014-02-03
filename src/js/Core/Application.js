@@ -8,7 +8,6 @@ var Application = Backbone.Model.extend({
 var ApplicationView = Backbone.View.extend({
 	el : '#Application',
 	model : new Application(),
-	eventCollection : {},
 	titlescreen : {},
 	gamescreen : {},
 	
@@ -19,13 +18,8 @@ var ApplicationView = Backbone.View.extend({
 		
 		// Enable CSS state pseudo-classes
 		document.addEventListener("touchstart", function() {},false);
-		
-		var self = this;
-		
-		// Render and run after event data is loaded.
-		this.eventCollection = new EventCollection({callback : function() {		
-			self.render();
-		}})
+				
+		this.render();
 	},
 
 	
